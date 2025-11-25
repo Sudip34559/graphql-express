@@ -1,0 +1,66 @@
+enum Role {
+  user
+  admin
+}
+
+type AuthPayload {
+  accessToken: String!
+  refreshToken: String!
+  name: String!
+  email: String!
+  avatar: String
+}
+
+type User {
+  id: Int!
+  name: String!
+  email: String!
+  role: Role!
+  avatar: String
+  refreshToken: String
+  posts: [Post!]!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Post {
+  id: Int!
+  title: String!
+  content: String!
+  published: Boolean!
+  author: User!
+  authorId: Int!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type Query {
+  users: [User!]!
+  user(id: Int!): User
+  userProfile: User!
+
+  posts: [Post!]!
+  post(id: Int!): Post
+}
+
+type Mutation {
+  createUser(
+    name: String!
+    email: String!
+    password: String!
+    avatar: String
+  ): User!
+
+  loginUser(email: String!, password: String!): AuthPayload!
+
+  createPost(title: String!, content: String!, authorId: Int!): Post!
+
+  updatePost(
+    id: Int!
+    title: String
+    content: String
+    published: Boolean
+  ): Post!
+
+  deletePost(id: Int!): Boolean!
+}

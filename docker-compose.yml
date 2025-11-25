@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: graphql
+      POSTGRES_PASSWORD: graphql123
+      POSTGRES_DB: graphql

@@ -1,0 +1,92 @@
+# =======================
+# Node / Bun Core
+# =======================
+node_modules/
+bun.lock
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Bun cache
+.bun/
+
+# =======================
+# Environment files
+# =======================
+.env
+.env.*.local
+.env.local
+
+# =======================
+# Prisma
+# =======================
+prisma/*.db
+prisma/dev.db
+prisma/prod.db
+prisma/*.sqlite
+prisma/sqlite.db
+prisma/migrations/*.log
+
+# Generated Prisma client
+/node_modules/.prisma/
+generated/prisma/
+prisma/migrations
+
+# =======================
+# Build output
+# =======================
+dist/
+build/
+out/
+
+# TypeScript
+*.tsbuildinfo
+
+# =======================
+# Logs
+# =======================
+logs/
+*.log
+*.log.*
+debug.log*
+
+# PM2 logs
+.pids
+*.pid
+*.seed
+
+# =======================
+# IDE & OS files
+# =======================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+
+# JetBrains
+.idea/
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# =======================
+# Optional (uploads, temp, cache)
+# =======================
+uploads/
+tmp/
+.cache/
+coverage/
+
+# GraphQL Codegen output
+graphql/generated.ts
