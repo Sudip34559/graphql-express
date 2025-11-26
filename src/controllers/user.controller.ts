@@ -5,7 +5,7 @@ import { graphql, GraphQLError } from "graphql";
 import jwt from "jsonwebtoken";
 import { getEnv } from "../lib/env";
 
-const generateAccessToken = (user: any) => {
+export const generateAccessToken = (user: any) => {
   return jwt.sign(
     {
       id: user.id,
@@ -19,7 +19,7 @@ const generateAccessToken = (user: any) => {
   );
 };
 
-const generateRefreshToken = (user: any) => {
+export const generateRefreshToken = (user: any) => {
   return jwt.sign(
     {
       id: user.id,
@@ -51,7 +51,8 @@ export const createUser: GQLResolver<{
   name: string;
   email: string;
   password: string;
-  avatar: string;
+  avatar?: string;
+  role?: string;
 }> = async (_, args, context) => {
   try {
     const existedUser = await context.prisma.user.findUnique({
@@ -71,6 +72,7 @@ export const createUser: GQLResolver<{
         email: args.email,
         password: hashedPassword,
         avatar: args.avatar,
+        role: args.role || "customer",
       },
     });
     return newUser;

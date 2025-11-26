@@ -1,6 +1,3 @@
-import bcrypt from "bcryptjs";
-import { prisma } from "../lib/prima.js";
-import { GraphQLError } from "graphql";
 import {
   createUser,
   getAllUsers,

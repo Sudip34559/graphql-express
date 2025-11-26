@@ -9,8 +9,9 @@ datasource db {
 }
 
 enum Role {
-   user
+   customer
    admin
+   seller
 }
 
 model User {
@@ -18,21 +19,11 @@ model User {
   name String @unique
   email String @unique 
   password String
-  role Role @default(user) 
+  role Role @default(customer) 
   avatar String?
   refreshToken String?
-  posts Post[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model Post {
-  id Int @id @default(autoincrement())
-  title String
-  content String
-  published Boolean @default(false)
-  author User @relation(fields: [authorId], references: [id])
-  authorId Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
+

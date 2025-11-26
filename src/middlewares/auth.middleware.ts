@@ -50,7 +50,7 @@ export const context = async ({ req, res }: ContextParams) => {
     const validatedToken = jwt.verify(token, getEnv("ACCESS_TOKEN_SECRET")) as {
       id: number;
     };
-
+    console.log(validatedToken);
     //
     // 4. Fetch user from DB
     //

@@ -90,3 +90,6 @@ coverage/
 
 # GraphQL Codegen output
 graphql/generated.ts
+
+# Proto generated files
+proto/generated/
