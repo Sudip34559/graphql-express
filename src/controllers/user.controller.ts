@@ -4,7 +4,7 @@ import type { GQLResolver } from "../types/resolver";
 import { graphql, GraphQLError } from "graphql";
 import jwt from "jsonwebtoken";
 import { getEnv } from "../lib/env";
-import { context } from "../middlewares/auth.middleware";
+import { context } from "../middlewares/middleware";
 
 export const generateAccessToken = (user: any) => {
   return jwt.sign(

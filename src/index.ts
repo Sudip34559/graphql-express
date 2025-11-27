@@ -5,11 +5,11 @@ import * as grpc from "@grpc/grpc-js";
 import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@as-integrations/express5";
 import bodyParser from "body-parser";
-import { resolvers } from "./resolver/resolvers.js";
+import { resolvers } from "./resolver/resolvers.ts";
 import { readFileSync } from "fs";
-import { context } from "./middlewares/auth.middleware.js";
+import { context } from "./middlewares/middleware.ts";
 import cookieParser from "cookie-parser";
-import { grpcInit } from "./grpcServer.js";
+import { grpcInit } from "./grpcServer.ts";
 const typeDefs = readFileSync("src/schema/schema.graphql", {
   encoding: "utf-8",
 });

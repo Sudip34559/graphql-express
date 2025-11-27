@@ -36,6 +36,7 @@
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "graphql": "^16.12.0",
+    "graphql-middleware": "^6.1.35",
     "pg": "^8.16.3",
     "prisma": "^7.0.0"
   }
