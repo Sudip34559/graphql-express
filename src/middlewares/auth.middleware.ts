@@ -58,6 +58,8 @@ export const context = async ({ req, res }: ContextParams) => {
       where: { id: validatedToken.id },
     });
 
+    console.log(user);
+
     return { user, prisma, res };
   } catch (error) {
     throw new GraphQLError("Invalid or expired token");

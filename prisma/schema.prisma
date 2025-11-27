@@ -9,9 +9,9 @@ datasource db {
 }
 
 enum Role {
-   customer
-   admin
-   seller
+   CUSTOMER
+   ADMIN
+   SELLER
 }
 
 model User {
@@ -19,7 +19,7 @@ model User {
   name String @unique
   email String @unique 
   password String
-  role Role @default(customer) 
+  role Role @default(CUSTOMER) 
   avatar String?
   refreshToken String?
   createdAt DateTime @default(now())

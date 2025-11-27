@@ -1,15 +1,21 @@
 enum Role {
-  customer
-  admin
-  seller
+  CUSTOMER
+  ADMIN
+  SELLER
 }
 
 type AuthPayload {
   accessToken: String!
   refreshToken: String!
+  id: Int!
   name: String!
   email: String!
   avatar: String
+  role: Role
+}
+
+type LogoutPayload {
+  message: String!
 }
 
 type User {
@@ -35,7 +41,12 @@ type Mutation {
     email: String!
     password: String!
     avatar: String
+    role: Role
   ): User!
 
   loginUser(email: String!, password: String!): AuthPayload!
+
+  logoutUser: LogoutPayload!
+
+  refreshAccessToken(refreshToken: String!): AuthPayload!
 }
