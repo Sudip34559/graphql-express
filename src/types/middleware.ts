@@ -1,6 +1,5 @@
 import type { GQLResolver } from "./resolver";
 
-export type Middleware = (resolver: GQLResolver) => GQLResolver;
 export type GQLMiddleware = (
   next: GQLResolver,
   parent: any,

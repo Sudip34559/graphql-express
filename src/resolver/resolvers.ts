@@ -7,12 +7,12 @@ import {
   refreshAccessToken,
   userProfile,
 } from "../controllers/user.controller.js";
-import { checkAuth } from "../middlewares/auth.middleware.js";
+import { checkAuth, verifyAdmin } from "../middlewares/auth.middleware.js";
 import { gqlMiddleware } from "../middlewares/gql.middleware.js";
 
 const resolvers = {
   Query: {
-    users: getAllUsers,
+    users: gqlMiddleware(verifyAdmin, getAllUsers),
     user: getUser,
     userProfile: gqlMiddleware(checkAuth, userProfile),
   },
