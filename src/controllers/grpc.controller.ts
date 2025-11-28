@@ -22,12 +22,12 @@ export const authService = {
         id: number;
       };
       //   console.log("Before verify");
-      //   console.log(validatedToken);
+      // console.log(validatedToken);
 
       const user = await prisma.user.findUnique({
         where: { id: validatedToken.id },
       });
-      //   console.log(user);
+      // console.log(user);
 
       if (user) {
         callback(null, {
